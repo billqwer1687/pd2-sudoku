@@ -4,13 +4,13 @@ class Sudoku
 {
 	public:
 	void print(int num[9][9]);
-	void givequestion();
+	void giveQuestion();
 	void readIn();
-	void changerow(int a,int b);
-	void changerotate(int n);
-	void changecolumn(int a,int b);
-	void changenumber(int a,int b);
-	void changeflip(int n);
+	void changeRow(int a,int b);
+	void rotate(int n);
+	void changeCol(int a,int b);
+	void changeNum(int a,int b);
+	void flip(int n);
 	bool getblank(int num[9][9],int &row,int &col);
 	bool check(int num[9][9],int row,int col,int num1);
 	bool solve1(int num[9][9]);

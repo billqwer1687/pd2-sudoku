@@ -1,5 +1,6 @@
 #include"Sudoku.h"
 #include<fstream>
+#include<ctime>
 using namespace std;
 
 //int num[8][8];
@@ -16,7 +17,7 @@ void Sudoku::print(int num[9][9])
 	}
 }
 
-void Sudoku::givequestion()
+void Sudoku::giveQuestion()
 {	
 	int i,j;
 	for(i=0;i<9;i++)
@@ -70,8 +71,8 @@ bool Sudoku::compare()
 }
 void Sudoku::solve()
 {
-	solve2(num);
 	solve1(num);
+	solve2(num);
 }
 bool Sudoku::solve2(int num[9][9])
 {
@@ -324,7 +325,7 @@ bool Sudoku::check(int num[9][9],int row,int col,int num1)
 {
 	return !usedinrow(num,row,num1)&&!usedincol(num,col,num1)&&!usedinbox(num,row-row%3,col-col%3,num1);
 }
-void Sudoku::changenumber(int a,int b)
+void Sudoku::changeNum(int a,int b)
 {
 	int i,j,tmp1,tmp2;
 	for(i=0;i<9;i++)
@@ -344,7 +345,7 @@ void Sudoku::changenumber(int a,int b)
 		}
 	}
 }
-void Sudoku::changerow(int a,int b)
+void Sudoku::changeRow(int a,int b)
 { 	
 	int i,j;
 	if(a==0&&b==1)
@@ -380,7 +381,7 @@ void Sudoku::changerow(int a,int b)
 	}
 
 }
-void Sudoku::changecolumn(int a,int b)
+void Sudoku::changeCol(int a,int b)
 {
 	int i,j;
 	if(a==0&&b==1)
@@ -416,7 +417,7 @@ void Sudoku::changecolumn(int a,int b)
 
 
 }
-void Sudoku::changerotate(int n)
+void Sudoku::rotate(int n)
 {
 	int i,j,k;
 	for(k=0;k<n;k++)
@@ -430,7 +431,7 @@ void Sudoku::changerotate(int n)
 		}
 	}	
 }
-void Sudoku::changeflip(int n)
+void Sudoku::flip(int n)
 {
 	int i,j,tmp3[9][9],tmp4[9][9];
 	if(n==1)
@@ -471,15 +472,14 @@ void Sudoku::changeflip(int n)
 void Sudoku::change()
 {
 	srand(time(NULL));
-	changenumber(rand()%10,rand()%10);
-	changerow(rand()%3,rand()%3);
-	changecolumn(rand()%3,rand()%3);
-	changerotate(rand()%101);
-	changeflip(rand()%2);
+	changeNum(rand()%10,rand()%10);
+	changeRow(rand()%3,rand()%3);
+	changeCol(rand()%3,rand()%3);
+	rotate(rand()%101);
+	flip(rand()%2);
 }
 void Sudoku::transform()
 {
 	readIn();
 	change();
-	print(num);
 }
