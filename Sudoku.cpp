@@ -68,6 +68,11 @@ bool Sudoku::compare()
 	}
 	return false;
 }
+void Sudoku::solve()
+{
+	solve2(num);
+	solve1(num);
+}
 bool Sudoku::solve2(int num[9][9])
 {
 	int row,col;
@@ -96,7 +101,7 @@ bool Sudoku::solve2(int num[9][9])
 	}
 	return false;
 }
-bool Sudoku::solve(int num[9][9])
+bool Sudoku::solve1(int num[9][9])
 {
 	int row,col;
 	for(int i=0;i<9;i++)
@@ -115,7 +120,7 @@ bool Sudoku::solve(int num[9][9])
 		if(check(num,row,col,num1))
 		{
 			tmp[row][col]=num1;
-			if(solve(tmp))
+			if(solve1(tmp))
 			{
 				return true;
 			}

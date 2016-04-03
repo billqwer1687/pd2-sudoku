@@ -13,7 +13,7 @@ class Sudoku
 	void changeflip(int n);
 	bool getblank(int num[9][9],int &row,int &col);
 	bool check(int num[9][9],int row,int col,int num1);
-	bool solve(int num[9][9]);
+	bool solve1(int num[9][9]);
 	bool solve2(int num[9][9]);
 	bool usedinrow(int num[9][9],int row,int num1);
 	bool usedincol(int num[9][9],int col,int num1);
@@ -21,6 +21,7 @@ class Sudoku
 	bool compare();
 	void change();
 	void transform();
+	void solve();
 	/*****/
 	bool chkrow();
 	bool chkcol();
