@@ -19,12 +19,20 @@ class sudoku
 	bool usedincol(int num[9][9],int col,int num1);
 	bool usedinbox(int num[9][9],int boxstartrow,int boxstartcol,int num1);
 	bool compare();
+	void change();
+	void transform();
+	/*****/
+	bool chkrow();
+	bool chkcol();
+	bool solvable();
+	/*****/
 	int num[9][9];
 	int com[9][9];
 	int tmp[9][9];
 	int tmp2[9][9];
 	int tmp5[9][9];
-	int a1[9],a2[9],a3[9],a4[9],a5[9],a6[9],a7[9],a8[9],a9[9];
-	int b1[9],b2[9],b3[9],b4[9],b5[9],b6[9],b7[9],b8[9],b9[9];
+	int tmp6[9][9];
+	int a[9];
+	int b[9];
 };
 
