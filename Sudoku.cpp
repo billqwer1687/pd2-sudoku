@@ -525,7 +525,7 @@ void Sudoku::rotate(int n)
 void Sudoku::flip(int n)
 {
 	int i,j,tmp3[9][9],tmp4[9][9];
-	if(n==1)
+	if(n==0)
 	{
 		for(i=0;i<9;i++)
 		{
@@ -542,7 +542,7 @@ void Sudoku::flip(int n)
 			}
 		}
 	}
-	if(n==0)
+	if(n==1)
 	{
 		for(i=0;i<9;i++)
 		{
@@ -573,4 +573,5 @@ void Sudoku::transform()
 {
 	readIn();
 	change();
+	print(num);
 }
