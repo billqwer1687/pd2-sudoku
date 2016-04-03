@@ -28,7 +28,7 @@ void Sudoku::givequestion()
 		cout<<endl;
 	}
 }
-void Sudoku::readin()
+void Sudoku::readIn()
 {
 	int i,j;
 	for(i=0;i<9;i++)
@@ -474,7 +474,7 @@ void Sudoku::change()
 }
 void Sudoku::transform()
 {
-	readin();
+	readIn();
 	change();
 	print(num);
 }

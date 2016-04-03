@@ -5,7 +5,7 @@ class Sudoku
 	public:
 	void print(int num[9][9]);
 	void givequestion();
-	void readin();
+	void readIn();
 	void changerow(int a,int b);
 	void changerotate(int n);
 	void changecolumn(int a,int b);
