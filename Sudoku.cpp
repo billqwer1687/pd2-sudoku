@@ -510,7 +510,7 @@ void Sudoku::rotate(int n)
 	{
 		for(j=0;j<9;j++)
 		{
-			tmp3[i][j]=num[j][8-i];
+			tmp3[i][j]=num[8-j][i];
 		}
 	}
 	for(i=0;i<9;i++)
