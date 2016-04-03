@@ -443,17 +443,25 @@ void Sudoku::changeCol(int a,int b)
 }
 void Sudoku::rotate(int n)
 {
-	int i,j,k;
+
+	int i,j,k,tmp3[9][9];
 	for(k=0;k<n;k++)
 	{
-		for(i=0;i<9;i++)
+	for(i=0;i<9;i++)
+	{
+		for(j=0;j<9;j++)
 		{
-			for(j=0;j<9;j++)
-			{
-				num[i][j]=num[8-j][i];
-			}
+			tmp3[i][j]=num[j][8-i];
 		}
-	}	
+	}
+	for(i=0;i<9;i++)
+	{
+		for(j=0;j<9;j++)
+		{
+			num[i][j]=tmp3[i][j];
+		}
+	}
+	}
 }
 void Sudoku::flip(int n)
 {
