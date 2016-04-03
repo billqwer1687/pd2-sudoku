@@ -73,6 +73,30 @@ void Sudoku::solve()
 {
 	solve1(num);
 	solve2(num);
+	if(solvable()==false)
+	{
+		cout<<"0"<<endl;
+		exit(1);
+	}
+	if(solve1(num)==true&&solve2(num)==true)
+	{
+		if(compare()==true)
+		{
+			cout<<"2"<<endl;
+			exit(1);
+		}
+		else
+		{
+			cout<<"1"<<endl;
+			print(tmp);
+			exit(1);
+		}
+	}
+	else
+	{
+		cout<<"0"<<endl;
+		exit(1);
+	}
 }
 bool Sudoku::solve2(int num[9][9])
 {
