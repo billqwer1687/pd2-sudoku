@@ -381,6 +381,16 @@ void Sudoku::changeRow(int a,int b)
 		}
 
 	}
+	if(a==1&&b==0)
+	{
+		for(i=0;i<3;i++)
+		{
+			for(j=0;j<9;j++)
+			{
+				swap(num[i][j],num[i+3][j]);
+			}
+		}
+	}
 	if(a==0&&b==2)
 	{
 		for(i=0;i<3;i++)
@@ -401,12 +411,42 @@ void Sudoku::changeRow(int a,int b)
 			}
 		}
 	}
+	if(a==2&&b==1)
+	{
+		for(i=3;i<6;i++)
+		{
+			for(j=0;j<9;j++)
+			{
+				swap(num[i][j],num[i+3][j]);
+			}
+		}
+	}
+	if(a==2&&b==0)
+	{
+		for(i=0;i<3;i++)
+		{
+			for(j=0;j<9;j++)
+			{
+				swap(num[i][j],num[i+6][j]);
+			}
+		}
+	}
 
 }
 void Sudoku::changeCol(int a,int b)
 {
 	int i,j;
 	if(a==0&&b==1)
+	{
+		for(j=0;j<3;j++)
+		{
+			for(i=0;i<9;i++)
+			{
+				swap(num[i][j],num[i][j+3]);
+			}
+		}
+	}
+	if(a==1&&b==0)
 	{
 		for(j=0;j<3;j++)
 		{
@@ -426,6 +466,16 @@ void Sudoku::changeCol(int a,int b)
 			}
 		}
 	}
+	if(a==2&&b==0)
+	{
+		for(j=0;j<3;j++)
+		{
+			for(i=0;i<9;i++)
+			{
+				swap(num[i][j],num[i][j+6]);
+			}
+		}
+	}
 	if(a==1&&b==2)
 	{
 		for(j=3;j<6;j++)
@@ -433,6 +483,17 @@ void Sudoku::changeCol(int a,int b)
 			for(i=0;i<9;i++)
 			{
 				swap(num[i][j],num[i][j+3]);
+			}
+		}
+	}
+	if(a==2&&b==1)
+	{
+		for(j=3;j<6;j++)
+		{
+			for(i=0;i<9;i++)
+			{
+				swap(num[i][j],num[i][j+3]);
+
 			}
 		}
 	}
@@ -502,7 +563,7 @@ void Sudoku::flip(int n)
 void Sudoku::change()
 {
 	srand(time(NULL));
-	changeNum(rand()%10,rand()%10);
+	changeNum((rand()%9)+1,(rand()%9)+1);
 	changeRow(rand()%3,rand()%3);
 	changeCol(rand()%3,rand()%3);
 	rotate(rand()%101);
