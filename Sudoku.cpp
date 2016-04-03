@@ -3,7 +3,7 @@
 using namespace std;
 
 //int num[8][8];
-void sudoku::print(int num[9][9])
+void Sudoku::print(int num[9][9])
 {
 	for(int row=0;row<9;row++)
 	{
@@ -16,7 +16,7 @@ void sudoku::print(int num[9][9])
 	}
 }
 
-void sudoku::givequestion()
+void Sudoku::givequestion()
 {	
 	int i,j;
 	for(i=0;i<9;i++)
@@ -28,7 +28,7 @@ void sudoku::givequestion()
 		cout<<endl;
 	}
 }
-void sudoku::readin()
+void Sudoku::readin()
 {
 	int i,j;
 	for(i=0;i<9;i++)
@@ -39,7 +39,7 @@ void sudoku::readin()
 		}
 	}
 }
-bool sudoku::compare()
+bool Sudoku::compare()
 {
 	for(int i=0;i<9;i++)
 	{
@@ -68,7 +68,7 @@ bool sudoku::compare()
 	}
 	return false;
 }
-bool sudoku::solve2(int num[9][9])
+bool Sudoku::solve2(int num[9][9])
 {
 	int row,col;
 	for(int i=0;i<9;i++)
@@ -96,7 +96,7 @@ bool sudoku::solve2(int num[9][9])
 	}
 	return false;
 }
-bool sudoku::solve(int num[9][9])
+bool Sudoku::solve(int num[9][9])
 {
 	int row,col;
 	for(int i=0;i<9;i++)
@@ -126,7 +126,7 @@ bool sudoku::solve(int num[9][9])
 
 }
 
-bool sudoku::chkrow()
+bool Sudoku::chkrow()
 {
 	for(int i=0;i<9;i++)
 	{
@@ -190,7 +190,7 @@ bool sudoku::chkrow()
 	}
 	return true;
 }
-bool sudoku::chkcol()
+bool Sudoku::chkcol()
 {
 	for(int i=0;i<9;i++)
 	{
@@ -257,7 +257,7 @@ bool sudoku::chkcol()
 	return true;
 }
 
-bool sudoku::solvable()
+bool Sudoku::solvable()
 {
 	if(chkrow()==false||chkcol()==false)
 		return false;
@@ -265,7 +265,7 @@ bool sudoku::solvable()
 }
 
 
-bool sudoku::getblank(int num[9][9],int &row,int &col)
+bool Sudoku::getblank(int num[9][9],int &row,int &col)
 {
 	for(row=0;row<9;row++)
 	{
@@ -279,7 +279,7 @@ bool sudoku::getblank(int num[9][9],int &row,int &col)
 	}
 	return false;
 }
-bool sudoku::usedinrow(int num[9][9],int row,int num1)
+bool Sudoku::usedinrow(int num[9][9],int row,int num1)
 {
 	for(int col=0;col<9;col++)
 	{
@@ -290,7 +290,7 @@ bool sudoku::usedinrow(int num[9][9],int row,int num1)
 	}
 	return false;
 }
-bool sudoku::usedincol(int num[9][9],int col,int num1)
+bool Sudoku::usedincol(int num[9][9],int col,int num1)
 {
 	for(int row=0;row<9;row++)
 	{
@@ -301,7 +301,7 @@ bool sudoku::usedincol(int num[9][9],int col,int num1)
 	}
 	return false;
 }
-bool sudoku::usedinbox(int num[9][9],int boxstartrow,int boxstartcol,int num1)
+bool Sudoku::usedinbox(int num[9][9],int boxstartrow,int boxstartcol,int num1)
 {
 	for(int row=0;row<3;row++)
 	{
@@ -315,11 +315,11 @@ bool sudoku::usedinbox(int num[9][9],int boxstartrow,int boxstartcol,int num1)
 	}
 	return false;
 }
-bool sudoku::check(int num[9][9],int row,int col,int num1)
+bool Sudoku::check(int num[9][9],int row,int col,int num1)
 {
 	return !usedinrow(num,row,num1)&&!usedincol(num,col,num1)&&!usedinbox(num,row-row%3,col-col%3,num1);
 }
-void sudoku::changenumber(int a,int b)
+void Sudoku::changenumber(int a,int b)
 {
 	int i,j,tmp1,tmp2;
 	for(i=0;i<9;i++)
@@ -339,7 +339,7 @@ void sudoku::changenumber(int a,int b)
 		}
 	}
 }
-void sudoku::changerow(int a,int b)
+void Sudoku::changerow(int a,int b)
 { 	
 	int i,j;
 	if(a==0&&b==1)
@@ -375,7 +375,7 @@ void sudoku::changerow(int a,int b)
 	}
 
 }
-void sudoku::changecolumn(int a,int b)
+void Sudoku::changecolumn(int a,int b)
 {
 	int i,j;
 	if(a==0&&b==1)
@@ -411,7 +411,7 @@ void sudoku::changecolumn(int a,int b)
 
 
 }
-void sudoku::changerotate(int n)
+void Sudoku::changerotate(int n)
 {
 	int i,j,k;
 	for(k=0;k<n;k++)
@@ -425,7 +425,7 @@ void sudoku::changerotate(int n)
 		}
 	}	
 }
-void sudoku::changeflip(int n)
+void Sudoku::changeflip(int n)
 {
 	int i,j,tmp3[9][9],tmp4[9][9];
 	if(n==1)
@@ -463,7 +463,7 @@ void sudoku::changeflip(int n)
 		}
 	}
 }
-void sudoku::change()
+void Sudoku::change()
 {
 	srand(time(NULL));
 	changenumber(rand()%10,rand()%10);
@@ -472,7 +472,7 @@ void sudoku::change()
 	changerotate(rand()%101);
 	changeflip(rand()%2);
 }
-void sudoku::transform()
+void Sudoku::transform()
 {
 	readin();
 	change();

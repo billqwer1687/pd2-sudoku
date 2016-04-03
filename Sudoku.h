@@ -1,6 +1,6 @@
 #include<iostream>
 #include<algorithm>
-class sudoku
+class Sudoku
 {
 	public:
 	void print(int num[9][9]);
