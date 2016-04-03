@@ -71,8 +71,6 @@ bool Sudoku::compare()
 }
 void Sudoku::solve()
 {
-	solve1(num);
-	solve2(num);
 	if(solvable()==false)
 	{
 		cout<<"0"<<endl;
